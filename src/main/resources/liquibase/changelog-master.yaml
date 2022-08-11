@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: student
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: notification_task
+      changes:
+        - createTable:
+            tableName: notification_task
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: id_chat
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: message
+                  type: VARCHAR(512)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: time_send
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+
+
