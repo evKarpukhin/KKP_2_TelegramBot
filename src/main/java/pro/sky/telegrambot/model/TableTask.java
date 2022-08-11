@@ -5,17 +5,19 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-@Table(name="notification_task")
+@Table(name = "notification_task")
 public class TableTask {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "id_chat")
     private Long idChat;
 
     private String message;
 
+    @Column(name = "time_send")
     private LocalDateTime timeSend;
 
     public TableTask(Long id, Long idChat, String message, LocalDateTime timeSend) {
